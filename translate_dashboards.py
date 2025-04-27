@@ -132,21 +132,141 @@ translations = {
     "Consumption (net)": "能耗(净值)",
     "Ø Speed": "平均速度",
     "Home": "主页",
+    "Car": "车辆",
+    "Custom Battery Capacity (kWh) when new": "新车时自定义电池容量 (kWh)",
+    "Custom Max Range when new": "新车时自定义最大续航",
+    "Bucket Width": "桶宽度",
+    "Include Moving Average / Percentiles": "包含移动平均/百分位数",
+    "Moving Average / Percentiles Width": "移动平均/百分位宽度",
+    "Geofence": "地理围栏",
+    "Location": "位置",
+    "Type": "类型",
+    "Cost >=" : "费用 >=",
+    "Duration (minutes) >=" : "持续时间(分钟) >=",
+    "Exclude locations": "排除位置",
+    "temperature unit": "温度单位",
+    "length unit": "长度单位",
+    "min. distance per drive": "最小行驶距离",
+    "Address": "地址",
+    "Time Resolution": "时间分辨率",
+    "Action": "操作",
+    "Address Filter": "地址筛选",
+    "Period": "周期",
+    "High Precision": "高精度",
+    "min. Idle Time (h)": "最小空闲时间(小时)",
+    "Max range (new)": "最大续航(新)",
+    "Max range (now)": "最大续航(现)",
+    "Range lost": "续航衰减",
+    "Efficiency": "能效",
+    "Energy added": "补充能量",
+    "Energy used": "能耗",
+    "Energy drained": "耗电量",
+    "Cost": "费用",
+    "Location": "位置",
+    "Distance": "距离",
+    "Temp": "温度",
+    "Range": "续航",
+    "SOC": "电池电量 (SOC)",
+    "Odometer": "里程表",
+    "Outside Temperature": "车外温度",
+    "Inside Temperature": "车内温度",
+    "Driver Temperature": "驾驶员温度",
+    "Passenger Temperature": "乘客温度",
+    "Climate": "空调系统",
+    "Fan status": "风扇状态",
+    "Neighbourhood": "街区",
+    "State": "州/省",
+    "Country": "国家",
+    "Address": "地址",
+    "Updated at": "更新时间",
+    "Duration": "持续时间",
+    "Start": "开始",
+    "End": "结束",
+    "Start Address": "出发地址",
+    "End Address": "目的地地址",
+    "ID": "编号",
+    "Date": "日期",
+    "Installed Version": "已安装版本",
+    "Since Previous Update": "自上次更新以来",
+    "Range Diff": "续航差异",
+    "Range (ideal)": "理想续航",
+    "Range (rated)": "额定续航",
+    "Range (est.)": "估计续航",
+    "Ø Speed": "平均速度",
+    "Ø Temp": "平均温度",
+    "Ø Power": "平均功率",
+    "Ø Consumption (net)": "平均能耗(净)",
+    "Ø Consumption (gross)": "平均能耗(总)",
+    "Ø Range loss / h": "每小时续航损失",
+    "Ø Ideal range": "平均理想续航",
+    "Ø Rated range": "平均额定续航",
+    "Mileage": "里程",
+    "Energy": "能量",
+    # 还可以补充更多
 }
 
-# 需要处理的字段
-target_fields = ["title"]
+# 2. 可以汉化的字段列表
+target_fields = ["title", "label", "name", "value"]
 
-# 输入和输出目录
+# 3. 分类 tags
+file_tags = {
+    "battery-health.json": ["battery"],
+    "charge-level.json": ["battery"],
+    "charges.json": ["battery"],
+    "charging-stats.json": ["battery"],
+    "database-info.json": ["system"],
+    "drive-stats.json": ["trip"],
+    "drives.json": ["trip"],
+    "efficiency.json": ["trip"],
+    "locations.json": ["location"],
+    "mileage.json": ["trip"],
+    "overview.json": ["tesla"],
+    "projected-range.json": ["battery"],
+    "states.json": ["trip"],
+    "statistics.json": ["trip"],
+    "timeline.json": ["trip"],
+    "trip.json": ["trip"],
+    "updates.json": ["system"],
+    "vampire-drain.json": ["battery"],
+    "visited.json": ["location"],
+    "internal/charge-details.json": ["battery"],
+    "internal/drive-details.json": ["trip"],
+    "internal/home.json": ["tesla"],
+    "reports/dutch-tax.json": ["trip"],
+}
+
+# 4. 要跳过的 value 类型（单位、内部标识）
+skip_values = {
+    "km", "mi", "Wh/km", "Wh/mi", "percentunit", "velocitykmh", "velocitymph",
+    "lengthkm", "lengthmi", "lengthm", "lengthft", "pressurebar", "pressurepsi",
+    "dateTimeAsLocal", "percent", "amp", "kwatt", "kwatth", "bytes", "watt",
+    "bool_on_off", "hidden", "none", "right", "left", "center",
+    "celsius", "fahrenheit", "lines", "dtdurations", "auto", "time: YYYY-MM-DD HH:mm:ss"
+}
+
+# 5. 输入输出路径
 dashboard_dir = "grafana/dashboards"
 output_dir = "output_dashboards"
 os.makedirs(output_dir, exist_ok=True)
 
-# 处理函数
-def translate_text(text):
+# 6. 翻译函数
+def translate_text(text, field=None):
+    if field == "value" and text in skip_values:
+        return text
     return translations.get(text, text)
 
-# 遍历 dashboards 目录下所有 json 文件
+# 7. 递归处理函数
+def translate_obj(obj):
+    if isinstance(obj, dict):
+        for key in list(obj.keys()):
+            if key in target_fields and isinstance(obj[key], str):
+                obj[key] = translate_text(obj[key], field=key)
+            translate_obj(obj[key])
+    elif isinstance(obj, list):
+        for item in obj:
+            translate_obj(item)
+
+# 8. 遍历处理文件
 for root, dirs, files in os.walk(dashboard_dir):
     for filename in files:
         if filename.endswith(".json"):
@@ -154,37 +274,69 @@ for root, dirs, files in os.walk(dashboard_dir):
             with open(path, "r", encoding="utf-8") as f:
                 data = json.load(f)
 
-            # 递归替换 title 和 label，同时修改 basemap
-            def translate_obj(obj):
-                if isinstance(obj, dict):
-                    for key in obj:
-                        if key in target_fields and isinstance(obj[key], str):
-                            obj[key] = translate_text(obj[key])
-                        elif key == "basemap" and isinstance(obj[key], dict):
-                            obj[key] = {
-                                "config": {
-                                    "url": "https://tile.dhuar.com/{z}/{x}/{y}.png"
-                                },
-                                "name": "Custom Layer",
-                                "type": "xyz"
-                            }
-                        else:
-                            translate_obj(obj[key])
-                elif isinstance(obj, list):
-                    for item in obj:
-                        translate_obj(item)
+            # 替换 basemap 地图瓦片
+            if "panels" in data:
+                for panel in data["panels"]:
+                    if panel.get("type") == "geomap" and "basemap" in panel:
+                        panel["basemap"] = {
+                            "config": {
+                                "url": "https://tile.dhuar.com/{z}/{x}/{y}.png"
+                            },
+                            "name": "自定义地图",
+                            "type": "xyz"
+                        }
 
+            # 替换 links
+            data["links"] = [
+                {
+                    "asDropdown": True,
+                    "icon": "external link",
+                    "tags": ["tesla"],
+                    "title": "车辆信息",
+                    "type": "dashboards"
+                },
+                {
+                    "asDropdown": True,
+                    "icon": "external link",
+                    "includeVars": False,
+                    "keepTime": False,
+                    "tags": ["battery"],
+                    "targetBlank": False,
+                    "title": "电池",
+                    "tooltip": "",
+                    "type": "dashboards",
+                    "url": ""
+                },
+                {
+                    "asDropdown": True,
+                    "icon": "external link",
+                    "includeVars": False,
+                    "keepTime": False,
+                    "tags": ["trip"],
+                    "targetBlank": False,
+                    "title": "行驶",
+                    "tooltip": "",
+                    "type": "dashboards",
+                    "url": ""
+                }
+            ]
+
+            # 补充 tags 分类
+            relative_path = os.path.relpath(path, dashboard_dir).replace("\\", "/")
+            tags = file_tags.get(relative_path, [])
+            if tags:
+                data["tags"] = tags
+
+            # 汉化内容
             translate_obj(data)
 
-            # 保存汉化并修改 basemap 后的文件
-            relative_path = os.path.relpath(path, dashboard_dir)
+            # 保存
             output_path = os.path.join(output_dir, relative_path)
             os.makedirs(os.path.dirname(output_path), exist_ok=True)
             with open(output_path, "w", encoding="utf-8") as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
 
-            print(f"已处理: {relative_path}")
+            print(f"✅ 已处理: {relative_path}")
 
-print("\n✅ 全部完成！请在 output_dashboards/ 目录查看汉化+换瓦片后的仪表盘文件。")
-
+print("\n✅✅✅ 全部完成！在 output_dashboards/ 查看汉化后的仪表盘！")
 

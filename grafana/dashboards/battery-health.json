@@ -20,21 +20,41 @@
   "graphTooltip": 1,
   "links": [
     {
-      "icon": "dashboard",
-      "tags": [],
-      "title": "特斯拉伴侣",
-      "tooltip": "",
-      "type": "link",
-      "url": "${base_url:raw}"
-    },
-    {
       "asDropdown": true,
       "icon": "external link",
       "tags": [
         "tesla"
       ],
-      "title": "仪表盘",
+      "title": "车辆信息",
       "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "battery"
+      ],
+      "targetBlank": false,
+      "title": "电池",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "trip"
+      ],
+      "targetBlank": false,
+      "title": "行驶",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -184,7 +204,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Max range (new)"
+                "value": "最大续航(新)"
               }
             ]
           },
@@ -196,7 +216,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Max range (now)"
+                "value": "最大续航(现)"
               }
             ]
           },
@@ -208,7 +228,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Range lost"
+                "value": "续航衰减"
               }
             ]
           }
@@ -1445,7 +1465,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Mileage"
+                "value": "里程"
               }
             ]
           },
@@ -1457,7 +1477,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Battery Capacity"
+                "value": "电池容量"
               },
               {
                 "id": "unit",
@@ -1604,7 +1624,7 @@
   "refresh": "",
   "schemaVersion": 41,
   "tags": [
-    "tesla"
+    "battery"
   ],
   "templating": {
     "list": [
@@ -1616,7 +1636,7 @@
         },
         "definition": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC",
         "includeAll": false,
-        "label": "Car",
+        "label": "车辆",
         "name": "car_id",
         "options": [],
         "query": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC",
@@ -1694,7 +1714,7 @@
           "value": "0"
         },
         "description": "Set the capacity of your car battery when it was new, in case you started using TeslaMate after a while of having it. If not, leave it at 0, it will be calculated with the data that is logged in TeslaMate",
-        "label": "Custom Battery Capacity (kWh) when new",
+        "label": "新车时自定义电池容量 (kWh)",
         "name": "custom_kwh_new",
         "options": [
           {
@@ -1712,7 +1732,7 @@
           "value": "0"
         },
         "description": "Set the max range to 100% of your car when it was new, in case you started using TeslaMate after a while of having it. If not, leave it at 0, the degradation will be calculated with the data that is logged in TeslaMate",
-        "label": "Custom Max Range when new",
+        "label": "新车时自定义最大续航",
         "name": "custom_max_range",
         "options": [
           {

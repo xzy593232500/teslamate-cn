@@ -20,29 +20,41 @@
   "graphTooltip": 1,
   "links": [
     {
-      "icon": "dashboard",
-      "tags": [],
-      "title": "特斯拉伴侣",
-      "tooltip": "",
-      "type": "link",
-      "url": "${base_url:raw}"
-    },
-    {
-      "icon": "",
-      "tags": [],
-      "title": "GpxExport",
-      "tooltip": "",
-      "type": "link",
-      "url": "${base_url:raw}/drive/$drive_id/gpx"
-    },
-    {
       "asDropdown": true,
       "icon": "external link",
       "tags": [
         "tesla"
       ],
-      "title": "仪表盘",
+      "title": "车辆信息",
       "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "battery"
+      ],
+      "targetBlank": false,
+      "title": "电池",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "trip"
+      ],
+      "targetBlank": false,
+      "title": "行驶",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -230,7 +242,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Range (ideal)"
+                "value": "理想续航"
               },
               {
                 "id": "min",
@@ -246,7 +258,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Range (rated)"
+                "value": "额定续航"
               },
               {
                 "id": "min",
@@ -266,7 +278,7 @@
               },
               {
                 "id": "displayName",
-                "value": "SOC"
+                "value": "电池电量 (SOC)"
               },
               {
                 "id": "custom.axisPlacement",
@@ -302,7 +314,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Range (est.)"
+                "value": "估计续航"
               },
               {
                 "id": "custom.axisPlacement",
@@ -778,7 +790,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Elevation"
+                "value": "海拔高度"
               },
               {
                 "id": "color",
@@ -975,7 +987,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Outside Temperature"
+                "value": "车外温度"
               }
             ]
           },
@@ -994,7 +1006,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Inside Temperature"
+                "value": "车内温度"
               }
             ]
           },
@@ -1006,7 +1018,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Driver Temperature"
+                "value": "驾驶员温度"
               }
             ]
           },
@@ -1018,7 +1030,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Passenger Temperature"
+                "value": "乘客温度"
               }
             ]
           },
@@ -1038,7 +1050,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Climate"
+                "value": "空调系统"
               }
             ]
           },
@@ -1050,7 +1062,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Fan status"
+                "value": "风扇状态"
               },
               {
                 "id": "custom.axisPlacement",
@@ -2424,7 +2436,9 @@
   ],
   "preload": false,
   "schemaVersion": 41,
-  "tags": [],
+  "tags": [
+    "trip"
+  ],
   "templating": {
     "list": [
       {
@@ -2484,7 +2498,7 @@
         },
         "definition": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC;",
         "includeAll": false,
-        "label": "Car",
+        "label": "车辆",
         "name": "car_id",
         "options": [],
         "query": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC;",

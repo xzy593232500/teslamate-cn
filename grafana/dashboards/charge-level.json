@@ -20,21 +20,41 @@
   "graphTooltip": 0,
   "links": [
     {
-      "icon": "dashboard",
-      "tags": [],
-      "title": "特斯拉伴侣",
-      "tooltip": "",
-      "type": "link",
-      "url": "${base_url:raw}"
-    },
-    {
       "asDropdown": true,
       "icon": "external link",
       "tags": [
         "tesla"
       ],
-      "title": "仪表盘",
+      "title": "车辆信息",
       "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "battery"
+      ],
+      "targetBlank": false,
+      "title": "电池",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "trip"
+      ],
+      "targetBlank": false,
+      "title": "行驶",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -264,7 +284,7 @@
   "refresh": "",
   "schemaVersion": 41,
   "tags": [
-    "tesla"
+    "battery"
   ],
   "templating": {
     "list": [
@@ -277,7 +297,7 @@
         "definition": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC;",
         "hide": 2,
         "includeAll": true,
-        "label": "Car",
+        "label": "车辆",
         "name": "car_id",
         "options": [],
         "query": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC;",
@@ -308,7 +328,7 @@
         },
         "description": "Data used to calculate Moving Average / Percentiles is unevenly sampled in TeslaMate. To avoid biases towards more frequently sampled values, the data is bucketed. For buckets without sampled values, the last observed value is carried forward. Bucketing is not time-weighted but is a simple average. Increasing the bucket width results in a loss of accuracy.",
         "includeAll": false,
-        "label": "Bucket Width",
+        "label": "桶宽度",
         "name": "bucket_width",
         "options": [
           {
@@ -336,7 +356,7 @@
           "value": "1"
         },
         "includeAll": false,
-        "label": "Include Moving Average / Percentiles",
+        "label": "包含移动平均/百分位数",
         "name": "include_average_percentiles",
         "options": [
           {
@@ -360,7 +380,7 @@
         },
         "description": "",
         "includeAll": false,
-        "label": "Moving Average / Percentiles Width",
+        "label": "移动平均/百分位宽度",
         "name": "intervals_moving_average_percentiles",
         "options": [
           {

@@ -20,29 +20,41 @@
   "graphTooltip": 1,
   "links": [
     {
-      "icon": "doc",
-      "tags": [],
-      "targetBlank": true,
-      "title": "Select last three drives",
-      "type": "link",
-      "url": "/d/FkUpJpQZk/trip?from=$from"
-    },
-    {
-      "icon": "dashboard",
-      "tags": [],
-      "title": "特斯拉伴侣",
-      "tooltip": "",
-      "type": "link",
-      "url": "${base_url:raw}"
-    },
-    {
       "asDropdown": true,
       "icon": "external link",
       "tags": [
         "tesla"
       ],
-      "title": "仪表盘",
+      "title": "车辆信息",
       "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "battery"
+      ],
+      "targetBlank": false,
+      "title": "电池",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "trip"
+      ],
+      "targetBlank": false,
+      "title": "行驶",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -276,7 +288,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Mileage"
+                "value": "里程"
               }
             ]
           },
@@ -292,7 +304,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Mileage"
+                "value": "里程"
               }
             ]
           }
@@ -808,7 +820,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Ø Consumption (net)"
+                "value": "平均能耗(净)"
               }
             ]
           },
@@ -824,7 +836,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Ø Consumption (net)"
+                "value": "平均能耗(净)"
               }
             ]
           }
@@ -928,7 +940,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Ø Consumption (gross)"
+                "value": "平均能耗(总)"
               }
             ]
           },
@@ -944,7 +956,7 @@
               },
               {
                 "id": "displayName",
-                "value": "Ø Consumption (gross)"
+                "value": "平均能耗(总)"
               }
             ]
           }
@@ -1417,7 +1429,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Date"
+                "value": "日期"
               },
               {
                 "id": "unit",
@@ -1447,7 +1459,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Ø Consumption (net)"
+                "value": "平均能耗(净)"
               },
               {
                 "id": "unit",
@@ -1471,7 +1483,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Ø Consumption (net)"
+                "value": "平均能耗(净)"
               },
               {
                 "id": "unit",
@@ -1495,7 +1507,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Distance"
+                "value": "距离"
               },
               {
                 "id": "unit",
@@ -1519,7 +1531,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Start"
+                "value": "开始"
               },
               {
                 "id": "links",
@@ -1571,7 +1583,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Duration"
+                "value": "持续时间"
               },
               {
                 "id": "unit",
@@ -1616,7 +1628,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Distance"
+                "value": "距离"
               },
               {
                 "id": "unit",
@@ -1796,7 +1808,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Date"
+                "value": "日期"
               },
               {
                 "id": "unit",
@@ -1826,7 +1838,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Energy added"
+                "value": "补充能量"
               },
               {
                 "id": "decimals",
@@ -1894,7 +1906,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Duration"
+                "value": "持续时间"
               },
               {
                 "id": "unit",
@@ -1918,7 +1930,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Cost"
+                "value": "费用"
               },
               {
                 "id": "unit",
@@ -1976,7 +1988,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Location"
+                "value": "位置"
               },
               {
                 "id": "links",
@@ -2026,7 +2038,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Ø Power"
+                "value": "平均功率"
               },
               {
                 "id": "unit",
@@ -2111,7 +2123,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Energy used"
+                "value": "能耗"
               },
               {
                 "id": "decimals",
@@ -2276,7 +2288,7 @@
               },
               {
                 "id": "displayName",
-                "value": "SOC"
+                "value": "电池电量 (SOC)"
               }
             ]
           },
@@ -2312,7 +2324,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Range (ideal)"
+                "value": "理想续航"
               }
             ]
           },
@@ -2324,7 +2336,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Range (rated)"
+                "value": "额定续航"
               }
             ]
           }
@@ -2479,7 +2491,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Elevation"
+                "value": "海拔高度"
               },
               {
                 "id": "color",
@@ -2555,7 +2567,7 @@
   "refresh": "",
   "schemaVersion": 41,
   "tags": [
-    "tesla"
+    "trip"
   ],
   "templating": {
     "list": [
@@ -2568,7 +2580,7 @@
         "definition": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC;",
         "hide": 2,
         "includeAll": true,
-        "label": "Car",
+        "label": "车辆",
         "name": "car_id",
         "options": [],
         "query": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC;",
@@ -2585,7 +2597,7 @@
         "definition": "select unit_of_temperature from settings limit 1;",
         "hide": 2,
         "includeAll": false,
-        "label": "temperature unit",
+        "label": "温度单位",
         "name": "temp_unit",
         "options": [],
         "query": "select unit_of_temperature from settings limit 1;",
@@ -2602,7 +2614,7 @@
         "definition": "select unit_of_length from settings limit 1;",
         "hide": 2,
         "includeAll": false,
-        "label": "length unit",
+        "label": "长度单位",
         "name": "length_unit",
         "options": [],
         "query": "select unit_of_length from settings limit 1;",

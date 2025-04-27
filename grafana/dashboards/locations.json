@@ -20,21 +20,41 @@
   "graphTooltip": 0,
   "links": [
     {
-      "icon": "dashboard",
-      "tags": [],
-      "title": "特斯拉伴侣",
-      "tooltip": "",
-      "type": "link",
-      "url": "${base_url:raw}"
-    },
-    {
       "asDropdown": true,
       "icon": "external link",
       "tags": [
         "tesla"
       ],
-      "title": "仪表盘",
+      "title": "车辆信息",
       "type": "dashboards"
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "battery"
+      ],
+      "targetBlank": false,
+      "title": "电池",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
+    },
+    {
+      "asDropdown": true,
+      "icon": "external link",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [
+        "trip"
+      ],
+      "targetBlank": false,
+      "title": "行驶",
+      "tooltip": "",
+      "type": "dashboards",
+      "url": ""
     }
   ],
   "panels": [
@@ -727,7 +747,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Updated at"
+                "value": "更新时间"
               },
               {
                 "id": "unit",
@@ -779,7 +799,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Neighbourhood"
+                "value": "街区"
               },
               {
                 "id": "unit",
@@ -825,7 +845,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "State"
+                "value": "州/省"
               },
               {
                 "id": "unit",
@@ -848,7 +868,7 @@
             "properties": [
               {
                 "id": "displayName",
-                "value": "Country"
+                "value": "国家"
               },
               {
                 "id": "unit",
@@ -1111,7 +1131,7 @@
   "refresh": "",
   "schemaVersion": 41,
   "tags": [
-    "tesla"
+    "location"
   ],
   "templating": {
     "list": [
@@ -1124,7 +1144,7 @@
         "definition": "SELECT\n    id as __value,\n    CASE WHEN COUNT(id) OVER (PARTITION BY name) > 1 AND name IS NOT NULL THEN CONCAT(name, ' - ', RIGHT(vin, 6)) ELSE COALESCE(name, CONCAT('VIN ', vin)) end as __text \nFROM cars\nORDER BY display_priority ASC, name ASC, vin ASC;",
         "hide": 1,
         "includeAll": true,
-        "label": "Car",
+        "label": "车辆",
         "multi": true,
         "name": "car_id",
         "options": [],
@@ -1154,7 +1174,7 @@
           "text": "",
           "value": ""
         },
-        "label": "Address",
+        "label": "地址",
         "name": "address_filter",
         "options": [
           {
