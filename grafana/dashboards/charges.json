@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -48,7 +48,7 @@
       },
       "id": 16,
       "panels": [],
-      "title": "Summary of this period",
+      "title": "本周期概览",
       "type": "row"
     },
     {
@@ -497,7 +497,7 @@
                 "value": [
                   {
                     "targetBlank": false,
-                    "title": "View charge details",
+                    "title": "查看充电详情",
                     "url": "/d/BHhxFeZRz/charge-details?from=${__data.fields.start_date_ts.numeric}&to=${__data.fields.end_date_ts.numeric}&var-car_id=${__data.fields.car_id.numeric}&var-charging_process_id=${__data.fields.id.numeric}"
                   }
                 ]
@@ -672,7 +672,7 @@
                 "value": [
                   {
                     "targetBlank": false,
-                    "title": "Set Cost",
+                    "title": "设置费用",
                     "url": "${base_url:raw}/charge-cost/${__data.fields.id.numeric}"
                   }
                 ]
@@ -726,7 +726,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.path}"
                   }
                 ]
@@ -1197,7 +1197,7 @@
           }
         }
       ],
-      "title": "Charger type: $charge_type",
+      "title": "充电器类型: $charge_type",
       "type": "table"
     },
     {
@@ -1210,7 +1210,7 @@
       },
       "id": 18,
       "panels": [],
-      "title": "General information (All charges)",
+      "title": "通用信息 (所有充电记录)",
       "type": "row"
     },
     {
@@ -1320,7 +1320,7 @@
           }
         }
       ],
-      "title": "Incomplete Charges 🪫",
+      "title": "未完成的充电 🪫",
       "type": "table"
     }
   ],
@@ -1511,7 +1511,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Charges",
+  "title": "充电记录",
   "uid": "TSmNYvRRk",
   "version": 1
 }

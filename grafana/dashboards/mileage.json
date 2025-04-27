@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -206,7 +206,7 @@
           }
         }
       ],
-      "title": "Mileage",
+      "title": "里程",
       "type": "timeseries"
     }
   ],
@@ -275,7 +275,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Mileage",
+  "title": "里程",
   "uid": "NjtMTFggz",
   "version": 1
 }

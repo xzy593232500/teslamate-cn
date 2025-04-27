@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -126,7 +126,7 @@
           }
         }
       ],
-      "title": "Battery Capacity",
+      "title": "电池容量",
       "type": "stat"
     },
     {
@@ -269,7 +269,7 @@
           }
         }
       ],
-      "title": "Ranges [$preferred_range]",
+      "title": "续航范围 [$preferred_range]",
       "type": "stat"
     },
     {
@@ -305,7 +305,7 @@
       "links": [
         {
           "targetBlank": true,
-          "title": "Drive Stats",
+          "title": "行驶统计",
           "url": "/d/_7WkNSyWk/drive-stats"
         }
       ],
@@ -441,7 +441,7 @@
           }
         }
       ],
-      "title": "Drive Stats",
+      "title": "行驶统计",
       "type": "stat"
     },
     {
@@ -566,7 +566,7 @@
           }
         }
       ],
-      "title": "AC/DC - Energy Used",
+      "title": "交流/直流 - 能耗",
       "type": "piechart"
     },
     {
@@ -659,7 +659,7 @@
           }
         }
       ],
-      "title": "Estimated Degradation",
+      "title": "预计电池衰减",
       "type": "gauge"
     },
     {
@@ -759,7 +759,7 @@
           }
         }
       ],
-      "title": "Battery Health",
+      "title": "电池健康状况",
       "type": "bargauge"
     },
     {
@@ -829,7 +829,7 @@
       "links": [
         {
           "targetBlank": true,
-          "title": "Charging Stats",
+          "title": "充电统计",
           "url": "/d/-pkIkhmRz/charging-stats"
         }
       ],
@@ -999,7 +999,7 @@
           }
         }
       ],
-      "title": "Charging Stats",
+      "title": "充电统计",
       "type": "stat"
     },
     {
@@ -1119,7 +1119,7 @@
           }
         }
       ],
-      "title": "Current SOC",
+      "title": "当前电量 (SOC)",
       "transformations": [
         {
           "id": "configFromData",
@@ -1262,7 +1262,7 @@
           }
         }
       ],
-      "title": "Efficiency",
+      "title": "能耗效率",
       "type": "stat"
     },
     {
@@ -1366,7 +1366,7 @@
           }
         }
       ],
-      "title": "Current Stored Energy",
+      "title": "当前储存能量",
       "type": "bargauge"
     },
     {
@@ -1596,7 +1596,7 @@
           }
         }
       ],
-      "title": "Battery Capacity by Mileage",
+      "title": "按里程统计电池容量",
       "type": "xychart"
     }
   ],
@@ -1734,7 +1734,7 @@
     "hidden": true
   },
   "timezone": "browser",
-  "title": "Battery Health",
+  "title": "电池健康状况",
   "uid": "jchmRiqUfXgTM",
   "version": 1
 }

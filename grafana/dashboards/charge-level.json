@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -224,7 +224,7 @@
           }
         }
       ],
-      "title": "Charge Level",
+      "title": "充电电量",
       "transformations": [
         {
           "id": "configFromData",
@@ -401,7 +401,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Charge Level",
+  "title": "充电电量",
   "uid": "WopVO_mgz",
   "version": 1
 }

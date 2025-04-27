@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -454,7 +454,7 @@
           }
         }
       ],
-      "title": "States",
+      "title": "州/省份",
       "type": "state-timeline"
     }
   ],
@@ -507,7 +507,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "States",
+  "title": "州/省份",
   "uid": "xo4BNRkZz",
   "version": 1
 }

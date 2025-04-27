@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -160,7 +160,7 @@
           }
         }
       ],
-      "title": "Ø Consumption (net)",
+      "title": "平均能耗 (净值)",
       "type": "stat"
     },
     {
@@ -271,7 +271,7 @@
           }
         }
       ],
-      "title": "Ø Consumption (gross)",
+      "title": "平均能耗 (总值)",
       "type": "stat"
     },
     {
@@ -382,7 +382,7 @@
           }
         }
       ],
-      "title": "Logged Distance",
+      "title": "记录距离",
       "type": "stat"
     },
     {
@@ -685,7 +685,7 @@
           }
         }
       ],
-      "title": "Temperature – Driving Efficiency",
+      "title": "温度 - 行驶效率",
       "type": "table"
     },
     {
@@ -795,7 +795,7 @@
           }
         }
       ],
-      "title": "Current $preferred_range efficiency",
+      "title": "当前$preferred_range效率",
       "type": "stat"
     },
     {
@@ -908,7 +908,7 @@
           }
         }
       ],
-      "title": "Derived ideal efficiencies",
+      "title": "推导理想效率",
       "type": "table"
     },
     {
@@ -1021,7 +1021,7 @@
           }
         }
       ],
-      "title": "Derived rated efficiencies",
+      "title": "推导额定效率",
       "type": "table"
     }
   ],
@@ -1162,7 +1162,7 @@
     "hidden": true
   },
   "timezone": "",
-  "title": "Efficiency",
+  "title": "能耗效率",
   "uid": "fu4SiQgWz",
   "version": 1
 }

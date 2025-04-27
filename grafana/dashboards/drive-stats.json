@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -119,7 +119,7 @@
           }
         }
       ],
-      "title": "# of Drives",
+      "title": "行驶次数",
       "type": "stat"
     },
     {
@@ -228,7 +228,7 @@
           }
         }
       ],
-      "title": "Total Distance logged",
+      "title": "记录总里程",
       "type": "stat"
     },
     {
@@ -312,7 +312,7 @@
           }
         }
       ],
-      "title": "Total Energy consumed (net)",
+      "title": "总能量消耗 (净值)",
       "type": "stat"
     },
     {
@@ -429,7 +429,7 @@
           }
         }
       ],
-      "title": "Median distance of a drive",
+      "title": "行驶中位距离",
       "type": "stat"
     },
     {
@@ -519,7 +519,7 @@
           "refId": "A"
         }
       ],
-      "title": "Ø Distance driven per day",
+      "title": "日均行驶里程",
       "type": "stat"
     },
     {
@@ -584,7 +584,7 @@
           "refId": "A"
         }
       ],
-      "title": "Ø Energy consumed (net) per day",
+      "title": "日均能耗(净)",
       "type": "stat"
     },
     {
@@ -703,7 +703,7 @@
           }
         }
       ],
-      "title": "Max Speed",
+      "title": "最大速度",
       "type": "stat"
     },
     {
@@ -823,7 +823,7 @@
         }
       ],
       "timeFrom": "30d",
-      "title": "Max Speed",
+      "title": "最大速度",
       "type": "stat"
     },
     {
@@ -943,7 +943,7 @@
         }
       ],
       "timeFrom": "7d",
-      "title": "Max Speed",
+      "title": "最大速度",
       "type": "stat"
     },
     {
@@ -1075,7 +1075,7 @@
           }
         }
       ],
-      "title": "Speed Histogram ($speed_unit)",
+      "title": "速度直方图($speed_unit)",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -1199,7 +1199,7 @@
           }
         }
       ],
-      "title": "Extrapolated monthly mileage",
+      "title": "推算月行驶里程",
       "type": "stat"
     },
     {
@@ -1289,7 +1289,7 @@
           "refId": "A"
         }
       ],
-      "title": "Extrapolated annual mileage",
+      "title": "推算年行驶里程",
       "transformations": [
         {
           "id": "calculateField",
@@ -1439,7 +1439,7 @@
           }
         }
       ],
-      "title": "Top 10 Destinations (in this period)",
+      "title": "本期热门目的地Top10",
       "type": "bargauge"
     }
   ],
@@ -1573,7 +1573,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Drive Stats",
+  "title": "行驶统计",
   "uid": "_7WkNSyWk",
   "version": 1
 }

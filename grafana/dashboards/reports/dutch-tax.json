@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -343,7 +343,7 @@
           }
         }
       ],
-      "title": "Drive",
+      "title": "单次行驶",
       "type": "table"
     }
   ],
@@ -444,7 +444,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Drives - Dutch tax",
+  "title": "行驶记录 - 荷兰税务版",
   "uid": "lBIoQIggk",
   "version": 1
 }

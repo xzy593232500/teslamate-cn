@@ -30,7 +30,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -41,7 +41,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -99,9 +99,11 @@
       "maxDataPoints": 500,
       "options": {
         "basemap": {
-          "config": {},
-          "name": "Layer 0",
-          "type": "osm-standard"
+          "config": {
+            "url": "https://tile.dhuar.com/{z}/{x}/{y}.png"
+          },
+          "name": "Custom Layer",
+          "type": "xyz"
         },
         "controls": {
           "mouseWheelZoom": true,
@@ -525,7 +527,7 @@
           }
         }
       ],
-      "title": "Time spent",
+      "title": "花费时间",
       "type": "piechart"
     },
     {
@@ -1524,7 +1526,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.start_path}"
                   }
                 ]
@@ -1550,7 +1552,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.end_path}"
                   }
                 ]
@@ -1805,7 +1807,7 @@
                 "value": [
                   {
                     "targetBlank": false,
-                    "title": "View charge details",
+                    "title": "查看充电详情",
                     "url": "/d/BHhxFeZRz/charge-details?from=${__data.fields.start_date_ts.numeric}&to=${__data.fields.end_date_ts.numeric}&var-car_id=${__data.fields.car_id.numeric}&var-charging_process_id=${__data.fields.id.numeric:raw}"
                   }
                 ]
@@ -1931,7 +1933,7 @@
                 "value": [
                   {
                     "targetBlank": false,
-                    "title": "Set Cost",
+                    "title": "设置费用",
                     "url": "${base_url:raw}/charge-cost/${__data.fields.id.numeric:raw}"
                   }
                 ]
@@ -1981,7 +1983,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.path}"
                   }
                 ]
@@ -2191,7 +2193,7 @@
           }
         }
       ],
-      "title": "Charges",
+      "title": "充电记录",
       "transformations": [
         {
           "id": "merge",
@@ -2545,7 +2547,7 @@
           }
         }
       ],
-      "title": "Elevation",
+      "title": "海拔高度",
       "type": "timeseries"
     }
   ],
@@ -2680,7 +2682,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Trip",
+  "title": "行程",
   "uid": "FkUpJpQZk",
   "version": 1
 }

@@ -139,22 +139,22 @@ const DirectionArrow = CircleMarker.extend({
 });
 
 function createMap(opts) {
-  const map = new M(opts.elId != null ? `map_${opts.elId}` : "map", opts);
+  const map = L.map(opts.elId != null ? `map_${opts.elId}` : "map", opts);
 
-  const osm = new TileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  const osm = L.tileLayer("https://tile.dhuar.com/{z}/{x}/{y}.png", {
     maxZoom: 19,
   });
 
   if (opts.enableHybridLayer) {
-    const hybrid = new TileLayer(
-      "http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
-      { maxZoom: 20, subdomains: ["mt0", "mt1", "mt2", "mt3"] },
+    const hybrid = L.tileLayer(
+      "https://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}",
+      { maxZoom: 20, subdomains: ["mt0", "mt1", "mt2", "mt3"] }
     );
 
-    new Control.Layers({ OSM: osm, Hybrid: hybrid }).addTo(map);
+    L.control.layers({ OSM: osm, Hybrid: hybrid }).addTo(map);
   }
 
-  map.addLayer(osm);
+  osm.addTo(map);
 
   return map;
 }

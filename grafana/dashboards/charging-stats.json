@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -133,7 +133,7 @@
           }
         }
       ],
-      "title": "# of Charges",
+      "title": "充电次数",
       "type": "stat"
     },
     {
@@ -217,7 +217,7 @@
           }
         }
       ],
-      "title": "Total Energy added",
+      "title": "总能量添加",
       "type": "stat"
     },
     {
@@ -302,7 +302,7 @@
           }
         }
       ],
-      "title": "SuC Charging Cost",
+      "title": "超级充电费用",
       "type": "stat"
     },
     {
@@ -387,7 +387,7 @@
           }
         }
       ],
-      "title": "Total Charging Cost",
+      "title": "充电总费用",
       "type": "stat"
     },
     {
@@ -466,7 +466,7 @@
           }
         }
       ],
-      "title": "Ø Cost per 100 $length_unit",
+      "title": "每100$length_unit平均花费",
       "type": "stat"
     },
     {
@@ -547,7 +547,7 @@
           }
         }
       ],
-      "title": "Ø Cost per kWh",
+      "title": "每kWh平均费用",
       "type": "stat"
     },
     {
@@ -628,7 +628,7 @@
           }
         }
       ],
-      "title": "Ø Cost per kWh DC",
+      "title": "每kWh直流费用",
       "type": "stat"
     },
     {
@@ -709,7 +709,7 @@
           }
         }
       ],
-      "title": "Ø Cost per kWh AC",
+      "title": "每kWh交流费用",
       "type": "stat"
     },
     {
@@ -763,7 +763,7 @@
           "color": "rgba(255,0,255,0.7)"
         },
         "filterValues": {
-          "le": 1e-9
+          "le": 1e-09
         },
         "legend": {
           "show": false
@@ -817,7 +817,7 @@
         }
       ],
       "timeFrom": "6M",
-      "title": "Charge Heatmap",
+      "title": "充电热力图",
       "type": "heatmap"
     },
     {
@@ -999,7 +999,7 @@
         }
       ],
       "timeFrom": "6M",
-      "title": "Charge Delta",
+      "title": "充电变化量",
       "transformations": [
         {
           "id": "configFromData",
@@ -1156,7 +1156,7 @@
           }
         }
       ],
-      "title": "AC/DC - Energy Used",
+      "title": "交流/直流 - 能耗",
       "type": "piechart"
     },
     {
@@ -1225,10 +1225,11 @@
       "maxDataPoints": 1,
       "options": {
         "basemap": {
-          "config": {},
-          "name": "Layer 0",
-          "tooltip": true,
-          "type": "osm-standard"
+          "config": {
+            "url": "https://tile.dhuar.com/{z}/{x}/{y}.png"
+          },
+          "name": "Custom Layer",
+          "type": "xyz"
         },
         "controls": {
           "mouseWheelZoom": true,
@@ -1332,7 +1333,7 @@
           }
         }
       ],
-      "title": "Charging heat map by kWh",
+      "title": "按kWh显示充电热力图",
       "type": "geomap"
     },
     {
@@ -1457,7 +1458,7 @@
           }
         }
       ],
-      "title": "AC/DC - Duration",
+      "title": "交流/直流 - 时间",
       "type": "piechart"
     },
     {
@@ -1519,7 +1520,7 @@
                 "id": "links",
                 "value": [
                   {
-                    "title": "Show charge details",
+                    "title": "查看充电详情",
                     "url": "/d/BHhxFeZRz/charge-details?from=${__data.fields.start_date.numeric}&to=${__data.fields.end_date.numeric}&var-car_id=${car_id}&var-charging_process_id=${__data.fields.charging_process_id.numeric}"
                   }
                 ]
@@ -1699,7 +1700,7 @@
           }
         }
       ],
-      "title": "DC Charging Curve",
+      "title": "直流充电曲线",
       "type": "xychart"
     },
     {
@@ -1866,7 +1867,7 @@
           }
         }
       ],
-      "title": "Charge Stats",
+      "title": "充电统计数据",
       "transformations": [
         {
           "id": "configFromData",
@@ -2051,7 +2052,7 @@
           }
         }
       ],
-      "title": "Discharge Stats",
+      "title": "放电统计数据",
       "type": "table"
     },
     {
@@ -2175,7 +2176,7 @@
           }
         }
       ],
-      "title": "Top Charging Stations (Charged)",
+      "title": "热门充电站（充电量）",
       "type": "table"
     },
     {
@@ -2295,7 +2296,7 @@
           }
         }
       ],
-      "title": "Top Charging Stations (Cost)",
+      "title": "热门充电站（花费）",
       "type": "table"
     }
   ],
@@ -2364,7 +2365,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Charging Stats",
+  "title": "充电统计",
   "uid": "-pkIkhmRz",
   "version": 1
 }

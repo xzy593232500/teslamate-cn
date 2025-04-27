@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -41,7 +41,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -492,7 +492,7 @@
           }
         }
       ],
-      "title": "Drive",
+      "title": "单次行驶",
       "type": "timeseries"
     },
     {
@@ -535,9 +535,11 @@
       "maxDataPoints": 50000,
       "options": {
         "basemap": {
-          "config": {},
-          "name": "Layer 0",
-          "type": "osm-standard"
+          "config": {
+            "url": "https://tile.dhuar.com/{z}/{x}/{y}.png"
+          },
+          "name": "Custom Layer",
+          "type": "xyz"
         },
         "controls": {
           "mouseWheelZoom": true,
@@ -841,7 +843,7 @@
           }
         }
       ],
-      "title": "Elevation",
+      "title": "海拔高度",
       "type": "timeseries"
     },
     {
@@ -1110,7 +1112,7 @@
           }
         }
       ],
-      "title": "Temperatures",
+      "title": "温度",
       "type": "timeseries"
     },
     {
@@ -1361,7 +1363,7 @@
           }
         }
       ],
-      "title": "Tire Pressure",
+      "title": "胎压",
       "type": "timeseries"
     },
     {
@@ -1374,7 +1376,7 @@
       },
       "id": 36,
       "panels": [],
-      "title": "More Details",
+      "title": "更多细节",
       "type": "row"
     },
     {
@@ -1465,7 +1467,7 @@
           }
         }
       ],
-      "title": "Odometer (From - To)",
+      "title": "里程表(起-止)",
       "type": "stat"
     },
     {
@@ -1556,7 +1558,7 @@
           }
         }
       ],
-      "title": "Drive Duration",
+      "title": "行驶时间",
       "type": "stat"
     },
     {
@@ -1639,7 +1641,7 @@
           }
         }
       ],
-      "title": "Selected Duration",
+      "title": "选定时长",
       "type": "stat"
     },
     {
@@ -1771,7 +1773,7 @@
           }
         }
       ],
-      "title": "Speed Histogram ($speed_unit)",
+      "title": "速度直方图($speed_unit)",
       "transformations": [
         {
           "id": "filterFieldsByName",
@@ -1903,7 +1905,7 @@
           }
         }
       ],
-      "title": "Distance driven",
+      "title": "行驶距离",
       "type": "stat"
     },
     {
@@ -2012,7 +2014,7 @@
           }
         }
       ],
-      "title": "Elevation Summary",
+      "title": "海拔变化总结",
       "type": "stat"
     },
     {
@@ -2102,7 +2104,7 @@
           }
         }
       ],
-      "title": "Energy consumed (net)",
+      "title": "能量消耗(净值)",
       "type": "stat"
     },
     {
@@ -2193,7 +2195,7 @@
           }
         }
       ],
-      "title": "Energy recovered",
+      "title": "能量回收",
       "type": "stat"
     },
     {
@@ -2308,7 +2310,7 @@
           }
         }
       ],
-      "title": "Consumption (net)",
+      "title": "能耗(净值)",
       "type": "stat"
     },
     {
@@ -2416,7 +2418,7 @@
           }
         }
       ],
-      "title": "Ø Speed",
+      "title": "平均速度",
       "type": "stat"
     }
   ],
@@ -2580,7 +2582,7 @@
     "refresh_intervals": []
   },
   "timezone": "",
-  "title": "Drive Details",
+  "title": "行驶详情",
   "uid": "zm7wN6Zgz",
   "version": 1
 }

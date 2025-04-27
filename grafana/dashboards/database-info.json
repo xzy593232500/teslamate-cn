@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -116,7 +116,7 @@
           }
         }
       ],
-      "title": "Mileage",
+      "title": "里程",
       "type": "stat"
     },
     {
@@ -225,7 +225,7 @@
           }
         }
       ],
-      "title": "Stats",
+      "title": "统计数据",
       "type": "stat"
     },
     {
@@ -334,7 +334,7 @@
           }
         }
       ],
-      "title": "Software",
+      "title": "软件版本",
       "type": "stat"
     },
     {
@@ -443,7 +443,7 @@
           }
         }
       ],
-      "title": "Incomplete Data",
+      "title": "不完整数据",
       "type": "stat"
     },
     {
@@ -521,7 +521,7 @@
           }
         }
       ],
-      "title": "PostgreSQL Version",
+      "title": "PostgreSQL版本",
       "type": "stat"
     },
     {
@@ -534,7 +534,7 @@
       },
       "id": 34,
       "panels": [],
-      "title": "Database Information",
+      "title": "数据库信息",
       "type": "row"
     },
     {
@@ -893,7 +893,7 @@
           }
         }
       ],
-      "title": "Indexes",
+      "title": "索引",
       "type": "table"
     },
     {
@@ -975,7 +975,7 @@
           }
         }
       ],
-      "title": "Database Total Size",
+      "title": "数据库总大小",
       "type": "stat"
     },
     {
@@ -1056,7 +1056,7 @@
           }
         }
       ],
-      "title": "Timezone",
+      "title": "时区",
       "type": "stat"
     },
     {
@@ -1069,7 +1069,7 @@
       },
       "id": 44,
       "panels": [],
-      "title": "Statistics of SQL planning and execution",
+      "title": "SQL执行与规划统计",
       "type": "row"
     },
     {
@@ -1148,7 +1148,7 @@
           }
         }
       ],
-      "title": "Time at which all statistics in the pg_stat_statements view were last reset",
+      "title": "pg_stat_statements统计最后重置时间",
       "type": "stat"
     },
     {
@@ -1227,7 +1227,7 @@
           }
         }
       ],
-      "title": "Number of Statements tracked via pg_stat_statements",
+      "title": "pg_stat_statements跟踪的语句数",
       "type": "stat"
     },
     {
@@ -1252,7 +1252,7 @@
         "mode": "markdown"
       },
       "pluginVersion": "11.6.1",
-      "title": "About pg_stat_statements (track statistics of SQL planning and execution)",
+      "title": "关于pg_stat_statements (追踪SQL计划与执行统计)",
       "type": "text"
     },
     {
@@ -1395,7 +1395,7 @@
           }
         }
       ],
-      "title": "Top 20 Statements (by mean time spent executing the statement)",
+      "title": "执行平均时间排名前20的SQL",
       "type": "table"
     },
     {
@@ -1538,7 +1538,7 @@
           }
         }
       ],
-      "title": "Top 20 Statements (by total time spent executing the statement)",
+      "title": "执行总时间排名前20的SQL",
       "type": "table"
     }
   ],
@@ -1689,7 +1689,7 @@
     "refresh_intervals": []
   },
   "timezone": "browser",
-  "title": "Database Information",
+  "title": "数据库信息",
   "uid": "jchmDbInfo",
   "version": 1
 }

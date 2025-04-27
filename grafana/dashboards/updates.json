@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -126,7 +126,7 @@
           }
         }
       ],
-      "title": "Updates",
+      "title": "更新",
       "type": "stat"
     },
     {
@@ -502,7 +502,7 @@
           }
         }
       ],
-      "title": "Updates",
+      "title": "更新",
       "type": "table"
     }
   ],
@@ -599,7 +599,7 @@
     ]
   },
   "timezone": "",
-  "title": "Updates",
+  "title": "更新",
   "uid": "IiC07mgWz",
   "version": 1
 }

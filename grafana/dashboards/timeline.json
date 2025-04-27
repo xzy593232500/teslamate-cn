@@ -26,7 +26,7 @@
       "keepTime": false,
       "tags": [],
       "targetBlank": false,
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -40,7 +40,7 @@
         "tesla"
       ],
       "targetBlank": false,
-      "title": "Dashboards",
+      "title": "仪表盘",
       "tooltip": "",
       "type": "dashboards",
       "url": ""
@@ -240,7 +240,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.start_path:raw}"
                   }
                 ]
@@ -266,7 +266,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.end_path:raw}"
                   }
                 ]
@@ -468,7 +468,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Slot details",
+                    "title": "时间槽详情",
                     "url": "${__data.fields.slotlink:raw}"
                   }
                 ]
@@ -545,7 +545,7 @@
           }
         }
       ],
-      "title": "Timeline",
+      "title": "时间轴",
       "transformations": [
         {
           "id": "organize",
@@ -752,7 +752,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Timeline",
+  "title": "时间轴",
   "uid": "SUBgwtigz",
   "version": 1
 }

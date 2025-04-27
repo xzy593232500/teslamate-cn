@@ -25,7 +25,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -36,7 +36,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -51,7 +51,7 @@
       },
       "id": 3,
       "panels": [],
-      "title": "Summary of this period",
+      "title": "本周期概览",
       "type": "row"
     },
     {
@@ -724,7 +724,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.start_path}"
                   }
                 ]
@@ -750,7 +750,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Create or edit geo-fence",
+                    "title": "创建或编辑地理围栏",
                     "url": "${base_url:raw}/geo-fences/${__data.fields.end_path}"
                   }
                 ]
@@ -1298,7 +1298,7 @@
           }
         }
       ],
-      "title": "Drive",
+      "title": "单次行驶",
       "type": "table"
     },
     {
@@ -1311,7 +1311,7 @@
       },
       "id": 10,
       "panels": [],
-      "title": "General information (All drives)",
+      "title": "所有行驶记录概况",
       "type": "row"
     },
     {
@@ -1421,7 +1421,7 @@
           }
         }
       ],
-      "title": "Incomplete Drives 🛣️",
+      "title": "未完成行驶 🛣️",
       "type": "table"
     }
   ],

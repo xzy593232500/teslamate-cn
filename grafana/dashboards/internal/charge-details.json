@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -380,7 +380,7 @@
           }
         }
       ],
-      "title": "Charge Details",
+      "title": "充电详情",
       "type": "timeseries"
     },
     {
@@ -481,7 +481,7 @@
           }
         }
       ],
-      "title": "Cost",
+      "title": "费用",
       "type": "stat"
     },
     {
@@ -739,7 +739,7 @@
           }
         }
       ],
-      "title": "Charge Energy",
+      "title": "充电能量",
       "type": "stat"
     },
     {
@@ -785,9 +785,11 @@
       "maxDataPoints": 500,
       "options": {
         "basemap": {
-          "config": {},
-          "name": "Layer 0",
-          "type": "osm-standard"
+          "config": {
+            "url": "https://tile.dhuar.com/{z}/{x}/{y}.png"
+          },
+          "name": "Custom Layer",
+          "type": "xyz"
         },
         "controls": {
           "mouseWheelZoom": true,
@@ -1039,7 +1041,7 @@
           }
         }
       ],
-      "title": "Battery Level",
+      "title": "电池电量",
       "type": "stat"
     },
     {
@@ -1122,7 +1124,7 @@
           }
         }
       ],
-      "title": "Ø Power",
+      "title": "平均功率",
       "type": "stat"
     },
     {
@@ -1229,7 +1231,7 @@
           }
         }
       ],
-      "title": "Ø Outdoor Temperature",
+      "title": "平均外部温度",
       "type": "stat"
     },
     {
@@ -1429,7 +1431,7 @@
           }
         }
       ],
-      "title": "Ranges ($preferred_range)",
+      "title": "续航范围($preferred_range)",
       "type": "stat"
     },
     {
@@ -1632,7 +1634,7 @@
           }
         }
       ],
-      "title": "Charging curve",
+      "title": "充电曲线",
       "type": "xychart"
     }
   ],
@@ -1747,7 +1749,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Charge Details",
+  "title": "充电详情",
   "uid": "BHhxFeZRz",
   "version": 1
 }

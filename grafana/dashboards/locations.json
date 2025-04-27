@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -464,7 +464,7 @@
           }
         }
       ],
-      "title": "Cities",
+      "title": "城市",
       "type": "bargauge"
     },
     {
@@ -557,7 +557,7 @@
           }
         }
       ],
-      "title": "States",
+      "title": "州/省份",
       "type": "bargauge"
     },
     {
@@ -681,7 +681,7 @@
           }
         }
       ],
-      "title": "Last visited",
+      "title": "最后访问",
       "type": "table"
     },
     {
@@ -930,7 +930,7 @@
           }
         }
       ],
-      "title": "Addresses",
+      "title": "地址",
       "transformations": [
         {
           "id": "merge",
@@ -1095,7 +1095,7 @@
           }
         }
       ],
-      "title": "Geo-fences",
+      "title": "地理围栏",
       "transformations": [
         {
           "id": "merge",
@@ -1174,7 +1174,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Locations",
+  "title": "位置",
   "uid": "ZzhF-aRWz",
   "version": 1
 }

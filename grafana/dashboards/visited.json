@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "tooltip": "",
       "type": "link",
       "url": "${base_url:raw}"
@@ -33,7 +33,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -91,9 +91,11 @@
       "maxDataPoints": 10000000,
       "options": {
         "basemap": {
-          "config": {},
-          "name": "Layer 0",
-          "type": "osm-standard"
+          "config": {
+            "url": "https://tile.dhuar.com/{z}/{x}/{y}.png"
+          },
+          "name": "Custom Layer",
+          "type": "xyz"
         },
         "controls": {
           "mouseWheelZoom": true,
@@ -605,7 +607,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Visited",
+  "title": "已访问地点",
   "uid": "RG_DxSmgk",
   "version": 1
 }

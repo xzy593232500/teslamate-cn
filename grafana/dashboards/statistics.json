@@ -22,7 +22,7 @@
     {
       "icon": "dashboard",
       "tags": [],
-      "title": "TeslaMate",
+      "title": "特斯拉伴侣",
       "type": "link",
       "url": "${base_url:raw}"
     },
@@ -32,7 +32,7 @@
       "tags": [
         "tesla"
       ],
-      "title": "Dashboards",
+      "title": "仪表盘",
       "type": "dashboards"
     }
   ],
@@ -110,7 +110,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Trip",
+                    "title": "行程",
                     "url": "/d/FkUpJpQZk/trip?from=${__data.fields.date_from}&to=${__data.fields.date_to}&var-car_id=$car_id"
                   }
                 ]
@@ -247,7 +247,7 @@
                 "value": [
                   {
                     "targetBlank": true,
-                    "title": "Charges",
+                    "title": "充电记录",
                     "url": "/d/TSmNYvRRk/charges?from=${__data.fields.date_from}&to=${__data.fields.date_to}&var-car_id=$car_id"
                   }
                 ]
@@ -1139,7 +1139,7 @@
   },
   "timepicker": {},
   "timezone": "",
-  "title": "Statistics",
+  "title": "统计信息",
   "uid": "1EZnXszMk",
   "version": 1
 }
