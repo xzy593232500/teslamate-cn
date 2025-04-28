@@ -21,125 +21,34 @@ defmodule GeocoderMock do
      }}
   end
 
-  def reverse_lookup(lat, lng, _lang)
-      when lat in [52.51599, 52.515, 52.514521] and lng in [13.35199, 13.351, 13.350144] do
-    {:ok,
-     %{
-       city: nil,
-       country: "Germany",
-       county: nil,
-       display_name: "1, Großer Stern, Tiergarten, Mitte, Berlin, 10787, Germany",
-       house_number: "1",
-       latitude: "52.5145069",
-       longitude: "13.3501101",
-       name: nil,
-       neighbourhood: "Tiergarten",
-       osm_id: 89_721_012,
-       osm_type: "way",
-       postcode: "10787",
-       raw: %{
-         "city_district" => "Mitte",
-         "country" => "Germany",
-         "country_code" => "de",
-         "house_number" => "1",
-         "postcode" => "10787",
-         "road" => "Großer Stern",
-         "state" => "Berlin",
-         "suburb" => "Tiergarten"
-       },
-       road: "Großer Stern",
-       state: "Berlin",
-       state_district: nil
-     }}
-  end
-
-  def reverse_lookup(52.394246, 13.542552, _lang) do
-    {:ok,
-     %{
-       city: nil,
-       country: "Germany",
-       county: nil,
-       display_name:
-         "Tesla Store & Service Center Berlin, 24-26, Alexander-Meißner-Straße, Altglienicke, Treptow-Köpenick, Berlin, 12526, Germany",
-       house_number: "24-26",
-       latitude: "52.3941049",
-       longitude: "13.5425707",
-       name: "Tesla Store & Service Center Berlin",
-       neighbourhood: "Altglienicke",
-       osm_id: 64_445_009,
-       osm_type: "way",
-       postcode: "12526",
-       raw: %{
-         "car" => "Tesla Store & Service Center Berlin",
-         "city_district" => "Treptow-Köpenick",
-         "country" => "Germany",
-         "country_code" => "de",
-         "house_number" => "24-26",
-         "postcode" => "12526",
-         "road" => "Alexander-Meißner-Straße",
-         "state" => "Berlin",
-         "suburb" => "Altglienicke"
-       },
-       road: "Alexander-Meißner-Straße",
-       state: "Berlin",
-       state_district: nil
-     }}
-  end
-
-  def reverse_lookup(-25.066188, -130.100502, _lang) do
-    {:ok,
-     %{
-       city: "Adamstown",
-       country: "Pitcairn Islands",
-       county: nil,
-       display_name: "Adamstown, Pitcairn Islands",
-       house_number: nil,
-       latitude: "-25.0661235097694",
-       longitude: "-130.100512324384",
-       name: nil,
-       neighbourhood: nil,
-       osm_id: 246_879_822,
-       osm_type: "way",
-       postcode: nil,
-       raw: %{
-         "country" => "Pitcairn Islands",
-         "country_code" => "pn",
-         "town" => "Adamstown"
-       },
-       road: nil,
-       state: nil,
-       state_district: nil
-     }}
-  end
-
   def reverse_lookup(lat, lon, _lang) when is_number(lat) and is_number(lon) do
+    {wgs_lng, wgs_lat} = gcj02_to_wgs84(lon, lat)
+
     {:ok,
      %{
-       city: "Bielefeld",
-       country: "Deutschland",
+       city: "示例城市",
+       country: "中国",
        county: nil,
-       display_name:
-         "Von-der-Recke-Straße, Mitte, Bielefeld, Regierungsbezirk Detmold, Nordrhein-Westfalen, 33602, Deutschland",
-       house_number: nil,
-       latitude: "52.0196010141104",
-       longitude: "8.52631835353143",
-       name: "Von-der-Recke-Straße",
-       neighbourhood: "Mitte",
-       osm_id: 103_619_766,
-       osm_type: "way",
-       postcode: "33602",
+       display_name: "示例道路, 示例城市, 示例省份, 中国",
+       house_number: "88号",
+       latitude: "#{wgs_lat}",
+       longitude: "#{wgs_lng}",
+       name: "示例建筑",
+       neighbourhood: "示例街道",
+       osm_id: 0,
+       osm_type: "amap",
+       postcode: "100000",
        raw: %{
-         "city" => "Bielefeld",
-         "country" => "Deutschland",
-         "country_code" => "de",
-         "postcode" => "33602",
-         "road" => "Von-der-Recke-Straße",
-         "state" => "Nordrhein-Westfalen",
-         "state_district" => "Regierungsbezirk Detmold",
-         "suburb" => "Mitte"
+         "province" => "示例省份",
+         "city" => "示例城市",
+         "district" => "示例区",
+         "township" => "示例街道",
+         "street" => "示例道路",
+         "street_number" => "88号"
        },
-       road: "Von-der-Recke-Straße",
-       state: "Nordrhein-Westfalen"
+       road: "示例道路",
+       state: "示例省份",
+       state_district: nil
      }}
   end
 
@@ -154,10 +63,55 @@ defmodule GeocoderMock do
          |> Map.from_struct()
          |> Map.update(:name, "", fn val -> "#{val}_#{lang}" end)
          |> Map.update(:state, "", fn val -> "#{val}_#{lang}" end)
-         |> Map.update(:country, "", fn _ -> "#{lang}" end)
+         |> Map.update(:country, "", fn _ -> "中国" end)
      end)}
   catch
     {:error, :boom} ->
       {:error, :boom}
+  end
+
+  @pi 3.14159265358979323846
+  @a 6378245.0
+  @ee 0.00669342162296594323
+
+  defp gcj02_to_wgs84(lng, lat) do
+    if out_of_china(lng, lat) do
+      {lng, lat}
+    else
+      {dlat, dlng} = delta(lng, lat)
+      {lng - dlng, lat - dlat}
+    end
+  end
+
+  defp out_of_china(lng, lat) do
+    lng < 72.004 or lng > 137.8347 or lat < 0.8293 or lat > 55.8271
+  end
+
+  defp delta(lng, lat) do
+    dlat = transform_lat(lng - 105.0, lat - 35.0)
+    dlng = transform_lng(lng - 105.0, lat - 35.0)
+    radlat = lat / 180.0 * @pi
+    magic = :math.sin(radlat)
+    magic = 1 - @ee * magic * magic
+    sqrtmagic = :math.sqrt(magic)
+    dlat = (dlat * 180.0) / ((@a * (1 - @ee)) / (magic * sqrtmagic) * @pi)
+    dlng = (dlng * 180.0) / (@a / sqrtmagic * :math.cos(radlat) * @pi)
+    {dlat, dlng}
+  end
+
+  defp transform_lat(x, y) do
+    ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * :math.sqrt(abs(x))
+    ret = ret + (20.0 * :math.sin(6.0 * x * @pi) + 20.0 * :math.sin(2.0 * x * @pi)) * 2.0 / 3.0
+    ret = ret + (20.0 * :math.sin(y * @pi) + 40.0 * :math.sin(y / 3.0 * @pi)) * 2.0 / 3.0
+    ret = ret + (160.0 * :math.sin(y / 12.0 * @pi) + 320 * :math.sin(y * @pi / 30.0)) * 2.0 / 3.0
+    ret
+  end
+
+  defp transform_lng(x, y) do
+    ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * :math.sqrt(abs(x))
+    ret = ret + (20.0 * :math.sin(6.0 * x * @pi) + 20.0 * :math.sin(2.0 * x * @pi)) * 2.0 / 3.0
+    ret = ret + (20.0 * :math.sin(x * @pi) + 40.0 * :math.sin(x / 3.0 * @pi)) * 2.0 / 3.0
+    ret = ret + (150.0 * :math.sin(x / 12.0 * @pi) + 300.0 * :math.sin(x / 30.0 * @pi)) * 2.0 / 3.0
+    ret
   end
 end
