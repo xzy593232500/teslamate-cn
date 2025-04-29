@@ -55,7 +55,7 @@ defmodule TeslaMate.Locations do
     |> Enum.each(fn {addresses, i} ->
       if i > 0, do: Process.sleep(1500)
 
-      {:ok, attrs} = @geocoder.details(addresses, lang)
+      attrs = @geocoder.details(addresses, lang)
 
       addresses
       |> merge_addresses(attrs)
@@ -119,8 +119,8 @@ defmodule TeslaMate.Locations do
       end)
 
     attrs
-    |> Enum.reduce(addresses, fn %{osm_id: id, osm_type: type} = attrs, acc ->
-      Map.update!(acc, {type, id}, fn {address, nil} -> {address, attrs} end)
+    |> Enum.reduce(addresses, fn {address, attrs}, acc ->
+      Map.update!(acc, {address.osm_type, address.osm_id}, fn {_, nil} -> {address, attrs} end)
     end)
     |> Map.values()
   end

@@ -130,7 +130,78 @@ defmodule TeslaMate.LocationsAddressesTest do
   end
 
   describe "find_address/1 " do
-    test "looks up and creates a new address" do
+    test "looks up and creates a new address based on high accuracy mock data" do
+      # Mocking GeocoderMock to return specific data for known coordinates
+      expect(GeocoderMock, :reverse_lookup, fn lat, lon, lang ->
+        case {lat, lon} do
+          {52.019596, 8.526318} ->
+            {:ok,
+             %{
+               city: "Bielefeld",
+               country: "Germany",
+               county: nil,
+               display_name:
+                 "Von-der-Recke-Straße, Mitte, Bielefeld, Regierungsbezirk Detmold, Nordrhein-Westfalen, 33602, Deutschland",
+               house_number: nil,
+               latitude: "52.0196010141104",
+               longitude: "8.52631835353143",
+               name: "Von-der-Recke-Straße",
+               neighbourhood: "Mitte",
+               osm_id: 103_619_766,
+               osm_type: "way",
+               postcode: "33602",
+               raw: %{
+                 "city" => "Bielefeld",
+                 "country" => "Deutschland",
+                 "country_code" => "de",
+                 "postcode" => "33602",
+                 "road" => "Von-der-Recke-Straße",
+                 "state" => "Nordrhein-Westfalen",
+                 "state_district" => "Regierungsbezirk Detmold",
+                 "suburb" => "Mitte"
+               },
+               road: "Von-der-Recke-Straße",
+               state: "Nordrhein-Westfalen",
+               state_district: nil
+             }}
+
+          {52.394246, 13.542552} ->
+            {:ok,
+             %{
+               city: nil,
+               country: "Germany",
+               county: nil,
+               display_name:
+                 "Tesla Store & Service Center Berlin, 24-26, Alexander-Meißner-Straße, Altglienicke, Treptow-Köpenick, Berlin, 12526, Germany",
+               house_number: "24-26",
+               latitude: "52.3941049",
+               longitude: "13.5425707",
+               name: "Tesla Store & Service Center Berlin",
+               neighbourhood: "Altglienicke",
+               osm_id: 64_445_009,
+               osm_type: "way",
+               postcode: "12526",
+               raw: %{
+                 "car" => "Tesla Store & Service Center Berlin",
+                 "city_district" => "Treptow-Köpenick",
+                 "country" => "Germany",
+                 "country_code" => "de",
+                 "house_number" => "24-26",
+                 "postcode" => "12526",
+                 "road" => "Alexander-Meißner-Straße",
+                 "state" => "Berlin",
+                 "suburb" => "Altglienicke"
+               },
+               road: "Alexander-Meißner-Straße",
+               state: "Berlin",
+               state_district: nil
+             }}
+
+          _ ->
+            {:error, :not_found}
+        end
+      end)
+
       assert {:ok, %Address{} = address} =
                Locations.find_address(%{latitude: 52.019596, longitude: 8.526318})
 
@@ -141,9 +212,25 @@ defmodule TeslaMate.LocationsAddressesTest do
       assert address == maddress
 
       assert {:ok, %Address{} = ^address} =
-               Locations.find_address(%{latitude: 52.019687, longitude: 8.526041})
+               Locations.find_address(%{latitude: 52.394246, longitude: 13.542552})
 
       assert [^address] = Repo.all(Address)
+    end
+
+    test "handles an unknown address by creating one with default values" do
+      expect(GeocoderMock, :reverse_lookup, fn _, _, _ -> {:error, :unknown} end)
+
+      assert {:ok, %Address{} = address} =
+               Locations.find_address(%{latitude: 0, longitude: 0})
+
+      assert address.osm_id == 0
+      assert address.osm_type == "unknown"
+      assert address.display_name == "Unknown"
+      assert address.latitude == Decimal.new("0.0")
+      assert address.longitude == Decimal.new("0.0")
+
+      assert [maddress] = Repo.all(Address)
+      assert address == maddress
     end
   end
 end

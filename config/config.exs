@@ -26,4 +26,7 @@ config :gettext, :default_locale, "en"
 
 config :elixir, :time_zone_database, Tzdata.TimeZoneDatabase
 
+# 配置高德API Key
+config :teslamate, :amap_api_key, "2d1ed9b1ca40da3dd0449d90bf0bf9b0"
+
 import_config "#{config_env()}.exs"

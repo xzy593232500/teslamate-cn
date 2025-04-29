@@ -12,8 +12,8 @@ defmodule LocationsMock do
     GenServer.start_link(__MODULE__, opts, name: Keyword.fetch!(opts, :name))
   end
 
-  def find_geofence(name, point) do
-    GenServer.call(name, {:find_geofence, point})
+  def find_geofence(point) do
+    GenServer.call(LocationsMock, {:find_geofence, point})
   end
 
   # Callbacks

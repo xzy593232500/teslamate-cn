@@ -17,8 +17,8 @@ defmodule TeslaMate.Locations.GeocoderTest do
               ]
 
        env = %Tesla.Env{
-         body: body,
-         headers: [],
+         body: Jason.encode!(body),
+         headers: [{"content-type", "application/json"}],
          status: 200
        }
 
@@ -81,13 +81,13 @@ defmodule TeslaMate.Locations.GeocoderTest do
 
         assert env.query == [
                  {:key, "2d1ed9b1ca40da3dd0449d90bf0bf9b0"},
-                 {:location, "41.129182,37.889602"},
+                 {:location, "116.481488,39.990464"},
                  {:extensions, "all"}
                ]
 
-        {:ok, %Tesla.Env{body: %{"status" => "0", "info" => "INVALID_USER_KEY"}, headers: [], status: 200}}
+        {:ok, %Tesla.Env{body: Jason.encode!(%{"status" => "0", "info" => "INVALID_USER_KEY"}), headers: [], status: 200}}
       end do
-      assert Geocoder.reverse_lookup(37.889602, 41.129182) ==
+      assert Geocoder.reverse_lookup(39.990464, 116.481488) ==
                {:error, {:geocoding_failed, "INVALID_USER_KEY"}}
     end
   end
@@ -99,13 +99,13 @@ defmodule TeslaMate.Locations.GeocoderTest do
 
         assert env.query == [
                  {:key, "2d1ed9b1ca40da3dd0449d90bf0bf9b0"},
-                 {:location, "41.129182,37.889602"},
+                 {:location, "116.481488,39.990464"},
                  {:extensions, "all"}
                ]
 
-        {:ok, %Tesla.Env{body: %{"status" => "0", "info" => "SERVICE_NOT_EXIST"}, headers: [], status: 200}}
+        {:ok, %Tesla.Env{body: Jason.encode!(%{"status" => "0", "info" => "SERVICE_NOT_EXIST"}), headers: [], status: 200}}
       end do
-      assert Geocoder.reverse_lookup(37.889602, 41.129182) ==
+      assert Geocoder.reverse_lookup(39.990464, 116.481488) ==
                {:error, {:geocoding_failed, "SERVICE_NOT_EXIST"}}
     end
   end
